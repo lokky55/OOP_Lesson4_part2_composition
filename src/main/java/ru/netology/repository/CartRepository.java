@@ -3,9 +3,10 @@ package ru.netology.repository;
 import ru.netology.domain.PurchaseItem;
 
 public class CartRepository {
- // заведем поле items которое будет содержать в себе массив из items;
+    // заведем поле items которое будет содержать в себе массив из items;
     private PurchaseItem[] items = new PurchaseItem[0];
-//  реализуем все методы для репозитория:
+
+    //  реализуем все методы для репозитория:
 //  методу save будет приходить параметр, который необходимо будет добавит в конец
     public void save(PurchaseItem item) {
         // создаем новый массив на еденицу больше
@@ -16,7 +17,7 @@ public class CartRepository {
 //        for (int i = 0; i < items.length; i++) {
 //            tmp[i] = items[i];
 //        }
-        // System.arraycopy принимает 5 параметров: откуда копируем, позиция начала, куда, сколько
+// System.arraycopy принимает 5 параметров: откуда копируем, позиция начала в целевом, куда, сколько
         System.arraycopy(items, 0, tmp, 0, items.length);
         // кладем последним наш элемент
         int lastIndex = tmp.length - 1;
@@ -24,7 +25,7 @@ public class CartRepository {
         items = tmp;
     }
 
-// метод findAll просто отдает все что запомнено в поле
+    // метод findAll просто отдает все что запомнено в поле
     public PurchaseItem[] findAll() {
         return items;
     }
